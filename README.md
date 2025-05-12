@@ -1,0 +1,163 @@
+# Hibob Job Listings
+
+## Description
+
+The Hibob Job Listings plugin seamlessly integrates your Hibob HR platform job postings with your WordPress website. Display current job openings, detailed job information, and application links with simple shortcodes - no coding required.
+
+This plugin connects directly to the Hibob API to ensure your career page always shows up-to-date job listings, synchronizing your HR system and website automatically.
+
+## Features
+
+- **Job Listings Display**: Show available positions with customizable filters
+- **Detailed Job Pages**: Present comprehensive job information with formatting preserved from Hibob
+- **Responsive Design**: Mobile-friendly layouts that look great on all devices
+- **Customizable Display**: Control what job information is shown
+- **Built-in Pagination**: Navigate through multiple job listings
+- **Direct Application Links**: Send candidates directly to your Hibob application form
+
+## Installation
+
+1. **Upload the Plugin**
+   - Navigate to your WordPress dashboard
+   - Go to Plugins > Add New > Upload Plugin
+   - Select the hibob-job-listings.zip file
+   - Click Install Now and then Activate
+
+2. **Configure API Credentials**
+   - Go to Settings > Hibob API Settings
+   - Enter your Hibob API username and password
+   - Save changes
+
+3. **Create Pages for Job Listings**
+   - Create a page for your job listings (e.g., "Careers")
+   - Create a page for job details (e.g., "Job Details")
+   - Add respective shortcodes to each page
+
+## Shortcodes
+
+### Job Listings Shortcode
+
+```
+[hibob_job_listings job_details_page="https://yoursite.com/job-details" limit="10"]
+```
+
+#### Available Parameters:
+
+- `job_details_page` (required): URL of the page with the job details shortcode
+- `department`: Filter by department name (e.g., "Engineering")
+- `employment_type`: Filter by employment type (e.g., "Full-time")
+- `keywords`: Filter by keywords in job title or description
+- `location`: Filter by location name
+- `recruiter_email`: Filter by recruiter's email
+- `site_id`: Filter by specific site ID
+- `status`: Job status (default: "Published")
+- `limit`: Number of jobs to display per page (default: 10)
+- `offset`: Number of jobs to skip (for pagination, default: 0)
+
+### Job Details Shortcode
+
+```
+[hibob_job_details]
+```
+
+No parameters needed. This shortcode automatically retrieves the job ID from the URL parameter (`?job_id=123`).
+
+## Example Setup
+
+1. **Create a Job Listings Page:**
+   
+   Add this shortcode to your main careers page:
+   ```
+   [hibob_job_listings job_details_page="https://yoursite.com/job-details" department="Engineering" limit="5"]
+   ```
+
+2. **Create a Job Details Page:**
+   
+   Add this shortcode to your job details page:
+   ```
+   [hibob_job_details]
+   ```
+
+3. When users click on "View Job Details" from the listings page, they'll be taken to the details page with the job information displayed.
+
+## Customization
+
+### CSS Styling
+
+The plugin includes basic styling that works with most themes. You can further customize the appearance by adding custom CSS to your theme or using a custom CSS plugin.
+
+Key CSS classes:
+- `.hibob-job-listings-container`: Main container for job listings
+- `.hibob-job-item`: Individual job listing
+- `.hibob-job-title`: Job title style
+- `.hibob-job-meta`: Job metadata (department, location)
+- `.hibob-job-details-container`: Container for detailed job view
+- `.hibob-pagination`: Pagination controls
+
+### Template Customization
+
+Advanced users can create custom templates by copying and modifying the plugin's shortcode render functions in their theme's functions.php file.
+
+## Frequently Asked Questions
+
+**Q: Do I need a Hibob account?**  
+A: Yes, this plugin requires API credentials from your Hibob account.
+
+**Q: Can I customize the job listings display?**  
+A: Yes, you can customize the display using the shortcode parameters and CSS styling.
+
+**Q: How often are job listings updated?**  
+A: Job listings are fetched in real-time from the Hibob API when a user visits your page.
+
+**Q: Can I add application forms directly on my website?**  
+A: The plugin provides an "Apply Now" button that links to your Hibob application system. For custom forms, you'd need additional development.
+
+**Q: Does this work with any WordPress theme?**  
+A: Yes, the plugin is designed to work with any properly coded WordPress theme.
+
+## Troubleshooting
+
+**Job listings aren't showing:**
+1. Check that your API credentials are correct
+2. Verify you've included the required `job_details_page` parameter in the listings shortcode
+3. Check if there are actually jobs published in your Hibob system
+
+**Error messages:**
+- "Hibob API credentials are not configured": Set up your API credentials in the plugin settings
+- "No job ID specified": Make sure your job details URL includes the job_id parameter
+- "Error fetching job listings": Check API credentials and connection to Hibob
+
+## Support
+
+For support inquiries, feature requests, or bug reports, please contact:
+
+- Email: support@konceptslab.com
+- Website: https://konceptslab.com/support
+
+## Changelog
+
+### 1.0.0
+- Initial release with core functionality
+- Job listings display with filtering options
+- Detailed job view with application link
+- Admin settings for API credentials
+
+## Credits
+
+Developed by [Koncepts Lab](https://konceptslab.com/)
+
+## License
+
+This plugin is licensed under the GPL v2 or later.
+
+```
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+```

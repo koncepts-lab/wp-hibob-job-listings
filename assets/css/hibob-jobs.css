@@ -1,0 +1,157 @@
+/* Hibob Job Listings Basic Styles */
+
+.hibob-error, .hibob-no-jobs {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.hibob-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.hibob-no-jobs {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.hibob-job-listings-container ul.hibob-job-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hibob-job-listings-container .hibob-job-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.hibob-job-listings-container .hibob-job-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+
+.hibob-job-listings-container .hibob-job-meta {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.hibob-job-listings-container .hibob-job-details-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #0073aa; /* WordPress blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.hibob-job-listings-container .hibob-job-details-link:hover {
+    background-color: #005a87;
+}
+
+/* Job Details Page */
+.hibob-job-details-container {
+    border: 1px solid #eee;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.hibob-job-details-container .hibob-job-detail-title {
+    margin-top: 0;
+    font-size: 2em;
+    color: #333;
+}
+
+.hibob-job-details-container .hibob-job-detail-meta {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.hibob-job-details-container .hibob-job-detail-meta p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.hibob-job-details-container .hibob-job-detail-description {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.hibob-job-details-container .hibob-job-detail-description h2 {
+    font-size: 1.5em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.hibob-job-details-container .hibob-job-detail-description ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+.hibob-job-details-container .hibob-job-detail-description p {
+    margin-bottom: 1em;
+}
+
+.hibob-apply-now a.button.button-primary {
+    font-size: 1.1em;
+    padding: 10px 20px;
+}
+
+/* Pagination */
+.hibob-pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+.hibob-pagination a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #0073aa;
+}
+.hibob-pagination a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Basic filter form styling (if you add one directly on the page) */
+.hibob-filters-form {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+}
+.hibob-filters-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.hibob-filters-form input[type="text"],
+.hibob-filters-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; /* So padding doesn't add to width */
+}
+.hibob-filters-form input[type="submit"] {
+    background-color: #0073aa;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.hibob-filters-form input[type="submit"]:hover {
+    background-color: #005a87;
+}
