@@ -214,7 +214,7 @@ class Hibob_API {
                 [
                     "fieldId"  => "/jobAd/id",
                     "operator" => "notEqual",
-                    "values"   => ["Konceptslab"] // Ensure "Test" is the intended literal value for exclusion.
+                    "values"   => ["Test"] // Ensure "Test" is the intended literal value for exclusion.
                 ]
             ],
         ];
