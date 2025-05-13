@@ -25,9 +25,9 @@ define( 'HIBOB_JOBS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require HIBOB_JOBS_PLUGIN_DIR . 'includes/class-hibob-api.php';
-require HIBOB_JOBS_PLUGIN_DIR . 'includes/class-hibob-shortcodes.php';
-require HIBOB_JOBS_PLUGIN_DIR . 'includes/class-hibob-admin.php';
+require_once HIBOB_JOBS_PLUGIN_DIR . 'includes/class-hibob-api.php';
+require_once HIBOB_JOBS_PLUGIN_DIR . 'includes/class-hibob-shortcodes.php';
+require_once HIBOB_JOBS_PLUGIN_DIR . 'includes/class-hibob-admin.php';
 
 /**
  * Begins execution of the plugin.
