@@ -3,7 +3,7 @@
  * Plugin Name:       Hibob Job Listings
  * Plugin URI:        https://konceptslab.com/
  * Description:       Integrates Hibob job listings and details into your WordPress site.
- * Version:           1.2.1 // Updated version for this change
+ * Version:           1.2.1
  * Author:            Koncepts Lab
  * Author URI:        https://konceptslab.com/
  * License:           GPL v2 or later
