@@ -1,157 +1,226 @@
-/* Hibob Job Listings Basic Styles */
+/*
+ * Hibob Job Listings Plugin Styles
+ * Version: 1.2.2
+ */
 
+/* Global Notices & Errors */
 .hibob-error, .hibob-no-jobs {
-    padding: 15px;
-    margin-bottom: 20px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
     border: 1px solid transparent;
-    border-radius: 4px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.05em;
+    line-height: 1.5;
 }
 
 .hibob-error {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
 }
 
 .hibob-no-jobs {
-    color: #31708f;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
 }
 
-.hibob-job-listings-container ul.hibob-job-list {
+/* Job Listings - Card Grid Layout (from previous update) */
+.hibob-job-list.hibob-cards-grid {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+.hibob-job-item-card { display: flex; }
+.hibob-job-card-link {
+    display: flex; flex-direction: column; background-color: #ffffff;
+    border-radius: 10px; padding: 25px; text-decoration: none;
+    color: #344054;
+    box-shadow: 0 4px 8px rgba(100, 116, 139, 0.08), 0 1px 3px rgba(100, 116, 139, 0.06);
+    transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+    width: 100%; min-height: 200px; justify-content: flex-start;
+    border: 1px solid #eaecf0;
+}
+.hibob-job-card-link:hover, .hibob-job-card-link:focus {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 8px 16px rgba(100, 116, 139, 0.1), 0 4px 6px rgba(100, 116, 139, 0.08);
+    color: #344054; outline: none;
+}
+.hibob-job-card-link:focus-visible { box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #6938ef; }
+.hibob-job-card-icon { margin-bottom: 16px; color: #98a2b3; line-height: 1; }
+.hibob-job-card-icon svg { width: 36px; height: 36px; fill: currentColor; }
+.hibob-job-card-title {
+    font-size: 1.2em; font-weight: 600; color: #101828; margin-top: 0;
+    margin-bottom: 10px; line-height: 1.35; display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    text-overflow: ellipsis; min-height: calc(1.2em * 1.35 * 2);
+}
+.hibob-job-card-region {
+    font-size: 0.9em; font-weight: 500; color: #6938ef;
+    margin-top: auto; padding-top: 10px; text-transform: capitalize;
 }
 
-.hibob-job-listings-container .hibob-job-item {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-}
-
-.hibob-job-listings-container .hibob-job-title {
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 1.5em;
-}
-
-.hibob-job-listings-container .hibob-job-meta {
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.hibob-job-listings-container .hibob-job-details-link {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #0073aa; /* WordPress blue */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 3px;
-    font-size: 0.9em;
-}
-
-.hibob-job-listings-container .hibob-job-details-link:hover {
-    background-color: #005a87;
-}
-
-/* Job Details Page */
-.hibob-job-details-container {
-    border: 1px solid #eee;
-    padding: 20px;
-    background-color: #fff;
-}
-
-.hibob-job-details-container .hibob-job-detail-title {
-    margin-top: 0;
-    font-size: 2em;
-    color: #333;
-}
-
-.hibob-job-details-container .hibob-job-detail-meta {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.hibob-job-details-container .hibob-job-detail-meta p {
-    margin: 5px 0;
-    font-size: 1em;
-    color: #555;
-}
-
-.hibob-job-details-container .hibob-job-detail-description {
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-.hibob-job-details-container .hibob-job-detail-description h2 {
-    font-size: 1.5em;
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-.hibob-job-details-container .hibob-job-detail-description ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-.hibob-job-details-container .hibob-job-detail-description p {
-    margin-bottom: 1em;
-}
-
-.hibob-apply-now a.button.button-primary {
-    font-size: 1.1em;
-    padding: 10px 20px;
-}
-
-/* Pagination */
+/* Pagination (from previous update) */
 .hibob-pagination {
-    margin-top: 20px;
-    text-align: center;
+    margin-top: 40px; text-align: center; clear: both; padding: 20px 0;
 }
-.hibob-pagination a {
-    margin: 0 5px;
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    text-decoration: none;
-    color: #0073aa;
+.hibob-pagination a, .hibob-pagination span.current {
+    display: inline-block; margin: 0 4px; padding: 10px 18px;
+    border: 1px solid #d0d5dd; text-decoration: none; color: #344054;
+    background-color: #ffffff; border-radius: 8px; font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 .hibob-pagination a:hover {
-    background-color: #f0f0f0;
+    background-color: #f9fafb; border-color: #b0b8c7; color: #1d2939;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.hibob-pagination span.current {
+    font-weight: 600; color: #ffffff; background-color: #6938ef; border-color: #6938ef;
 }
 
-/* Basic filter form styling (if you add one directly on the page) */
-.hibob-filters-form {
+
+/* ---- NEW STYLES FOR JOB DETAILS PAGE ---- */
+.hibob-job-details-page-container { /* Renamed from .hibob-job-details-container for clarity */
+    background-color: #fff; /* Assuming white background from image */
+    padding: 40px 20px; /* Adjust padding as needed */
+    max-width: 900px; /* Or your theme's content width */
+    margin: 30px auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Generic sans-serif stack */
+}
+
+.hibob-job-details-page-title {
+    font-size: 2.5em; /* Large title */
+    font-weight: 700; /* Bold */
+    color: #101828; /* Dark text */
+    margin-top: 0;
     margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    background-color: #f7f7f7;
-    border-radius: 4px;
+    line-height: 1.2;
 }
-.hibob-filters-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+
+.hibob-job-details-page-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between tag and posted date */
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
-.hibob-filters-form input[type="text"],
-.hibob-filters-form select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box; /* So padding doesn't add to width */
+
+.hibob-job-details-meta-tag {
+    display: inline-block;
+    background-color: #10B981; /* Green tag background */
+    color: #ffffff; /* White text */
+    padding: 6px 12px;
+    border-radius: 16px; /* Pill shape */
+    font-size: 0.85em;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.hibob-job-details-posted-date {
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    color: #667085; /* Gray for posted date */
+    font-size: 0.9em;
+}
+
+.hibob-icon.hibob-icon-calendar {
+    width: 1em; /* Size relative to font */
+    height: 1em;
+    margin-right: 6px;
+    fill: currentColor; /* Inherit color from parent */
+}
+
+.hibob-job-details-page-description {
+    color: #344054; /* Dark gray for main text */
+    font-size: 1em; /* Or 1.1em for slightly larger body text */
+    line-height: 1.8; /* Generous line height for readability */
+}
+
+.hibob-job-details-page-description p {
+    margin-bottom: 1.5em;
+}
+
+.hibob-job-details-page-description strong { /* To style specific keywords like "The goal:" */
+    font-weight: 600; /* Or 700 */
+    color: #101828; /* Make them stand out */
+    display: block; /* Make them appear on their own line if desired */
+    margin-bottom: 0.3em; /* Space after the bolded keyword line */
+}
+/* If keywords are not on their own line, remove display:block and adjust margins */
+
+.hibob-job-details-page-description h2,
+.hibob-job-details-page-description h3,
+.hibob-job-details-page-description h4 {
+    color: #101828;
+    font-weight: 600;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    line-height: 1.4;
+}
+.hibob-job-details-page-description h2 { font-size: 1.5em; }
+.hibob-job-details-page-description h3 { font-size: 1.3em; }
+
+.hibob-job-details-page-description ul,
+.hibob-job-details-page-description ol {
+    margin-bottom: 1.5em;
+    padding-left: 20px; /* Standard indent */
+}
+.hibob-job-details-page-description li {
+    margin-bottom: 0.5em;
+}
+
+.hibob-job-details-apply-now-container {
+    margin-top: 40px;
+    text-align: left; /* Or center if preferred */
+}
+
+a.hibob-job-details-apply-button { /* Changed from generic button for more specific styling */
+    display: inline-block;
+    font-size: 1em;
+    padding: 12px 25px;
+    background-color: #6938ef; /* Consistent purple button */
+    border: 1px solid #6938ef;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+a.hibob-job-details-apply-button:hover,
+a.hibob-job-details-apply-button:focus {
+    background-color: #5224cc;
+    border-color: #5224cc;
+    color: #ffffff;
+    transform: translateY(-1px);
+    outline: none;
+}
+a.hibob-job-details-apply-button:focus-visible {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #7F56D9; /* Example focus ring */
+}
+
+
+/* Filter form styles (if used - kept from before) */
+.hibob-filters-form {
+    margin-bottom: 30px; padding: 20px 25px; border: 1px solid #eaecf0;
+    background-color: #f9fafb; border-radius: 8px;
+}
+.hibob-filters-form label { display: block; margin-bottom: 6px; font-weight: 500; color: #344054; }
+.hibob-filters-form input[type="text"], .hibob-filters-form select {
+    width: 100%; padding: 10px 12px; margin-bottom: 15px; border: 1px solid #d0d5dd;
+    border-radius: 6px; box-sizing: border-box; font-size: 1em; color: #101828;
+}
+.hibob-filters-form input[type="text"]:focus, .hibob-filters-form select:focus {
+    border-color: #6938ef; box-shadow: 0 0 0 2px rgba(105, 56, 239, 0.2); outline: none;
 }
 .hibob-filters-form input[type="submit"] {
-    background-color: #0073aa;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+    background-color: #0073aa; color: white; padding: 10px 20px; border: none;
+    border-radius: 6px; cursor: pointer; font-size: 1em; font-weight: 500;
 }
-.hibob-filters-form input[type="submit"]:hover {
-    background-color: #005a87;
-}
+.hibob-filters-form input[type="submit"]:hover { background-color: #005a87; }

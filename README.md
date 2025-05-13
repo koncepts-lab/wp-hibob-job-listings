@@ -2,57 +2,64 @@
 
 ## Description
 
-The Hibob Job Listings plugin seamlessly integrates your Hibob HR platform job postings with your WordPress website. Display current job openings, detailed job information, and application links with simple shortcodes - no coding required.
+The Hibob Job Listings plugin seamlessly integrates your Hibob HR platform job postings with your WordPress website using the official Hibob API. Display current job openings, detailed job information, and application links with simple shortcodes.
 
 This plugin connects directly to the Hibob API to ensure your career page always shows up-to-date job listings, synchronizing your HR system and website automatically.
 
 ## Features
 
-- **Job Listings Display**: Show available positions with customizable filters
-- **Detailed Job Pages**: Present comprehensive job information with formatting preserved from Hibob
-- **Responsive Design**: Mobile-friendly layouts that look great on all devices
-- **Customizable Display**: Control what job information is shown
-- **Built-in Pagination**: Navigate through multiple job listings
-- **Direct Application Links**: Send candidates directly to your Hibob application form
+- **Job Listings Display**: Show available positions with filtering options via shortcode attributes.
+- **Detailed Job Pages**: Present comprehensive job information fetched directly from Hibob.
+- **Responsive Design**: Basic mobile-friendly layouts via included CSS.
+- **Built-in Pagination**: Navigate through multiple job listings on the main listing page.
+- **Direct Application Links**: Sends candidates directly to your Hibob application form from the details page.
+- **Admin Settings**: Configure API credentials easily.
 
 ## Installation
 
-1. **Upload the Plugin**
-   - Navigate to your WordPress dashboard
-   - Go to Plugins > Add New > Upload Plugin
-   - Select the hibob-job-listings.zip file
-   - Click Install Now and then Activate
+1.  **Upload the Plugin**
+    *   Download the `hibob-job-listings.zip` file.
+    *   Navigate to your WordPress dashboard: Plugins > Add New > Upload Plugin.
+    *   Select the downloaded zip file, click Install Now, and then Activate.
 
-2. **Configure API Credentials**
-   - Go to Settings > Hibob API Settings
-   - Enter your Hibob API username and password
-   - Save changes
+2.  **Configure API Credentials**
+    *   Go to Settings > Hibob API Settings in your WordPress admin area.
+    *   Enter your Hibob API username (Service User ID) and password (Token).
+    *   Save changes. **Ensure the service user has permissions to read hiring data.**
 
-3. **Create Pages for Job Listings**
-   - Create a page for your job listings (e.g., "Careers")
-   - Create a page for job details (e.g., "Job Details")
-   - Add respective shortcodes to each page
+3.  **Create Pages**
+    *   Create a WordPress page for your main job listings (e.g., "Careers" or "Open Positions").
+    *   Create a *separate* WordPress page for viewing job details (e.g., "Job Details"). Note the URL (permalink) of this page.
+
+4.  **Add Shortcodes**
+    *   Edit the "Careers" page and add the `[hibob_job_listings]` shortcode, making sure to include the `job_details_page` attribute pointing to your "Job Details" page URL.
+    *   Edit the "Job Details" page and add the `[hibob_job_details]` shortcode.
 
 ## Shortcodes
 
 ### Job Listings Shortcode
 
 ```
-[hibob_job_listings job_details_page="https://yoursite.com/job-details" limit="10"]
+[hibob_job_listings job_details_page="https://yoursite.com/job-details/" limit="10" department="Sales" preferred_language="en"]
 ```
+
+Place this on your main careers page.
 
 #### Available Parameters:
 
-- `job_details_page` (required): URL of the page with the job details shortcode
-- `department`: Filter by department name (e.g., "Engineering")
-- `employment_type`: Filter by employment type (e.g., "Full-time")
-- `keywords`: Filter by keywords in job title or description
-- `location`: Filter by location name
-- `recruiter_email`: Filter by recruiter's email
-- `site_id`: Filter by specific site ID
-- `status`: Job status (default: "Published")
-- `limit`: Number of jobs to display per page (default: 10)
-- `offset`: Number of jobs to skip (for pagination, default: 0)
+*   `job_details_page` (string, **required**): The *full URL* of the page where you placed the `[hibob_job_details]` shortcode.
+*   `limit` (int, optional): Number of jobs to display per page. Default: `10`.
+*   `offset` (int, optional): Number of jobs to skip (used automatically for pagination). Default: `0`.
+*   `preferred_language` (string, optional): Language code for job data (e.g., 'en', 'fr', 'de'). Default: `'en'`.
+*   **Filtering Attributes (Optional):**
+    *   `department` (string): Filter by department. **Note:** According to Hibob docs, you might need to use the *Department ID* from Hibob, not the name (e.g., `department="DPT123"`). Check your Hibob setup or use the Metadata API to find IDs if names don't work.
+    *   `employment_type` (string): Filter by employment type. **Note:** Might require the *Employment Type ID* (e.g., `employment_type="EMP456"`).
+    *   `site_id` (string): Filter by a specific site ID from Hibob (e.g., `site_id="SITE789"`).
+    *   `location` (string): Filters by location. **Note:** This maps to the `siteId` filter. Use the *Site ID*.
+    *   `language_code` (string): Filter jobs by their language code (e.g., `language_code="en-US"`).
+    *   `keywords` (string): Filters jobs where the keyword appears in the title.
+    *   `status` (string): Filter by job status. **Note:** Might require a specific status ID or code from Hibob (e.g., `status="Published"`).
+
 
 ### Job Details Shortcode
 
