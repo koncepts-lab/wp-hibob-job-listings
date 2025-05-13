@@ -6,7 +6,7 @@ The Hibob Job Listings plugin seamlessly integrates your Hibob HR platform job p
 
 This plugin connects directly to the Hibob API to ensure your career page always shows up-to-date job listings.
 
-**Current Version:** 1.2.1 (or your latest version number)
+**Current Version:** 1.2.1
 
 ## Features
 
