@@ -19,9 +19,48 @@ class Hibob_Shortcodes {
         $this->api = new Hibob_API();
         add_shortcode( 'hibob_job_listings', array( $this, 'render_job_listings_shortcode' ) );
         add_shortcode( 'hibob_job_details', array( $this, 'render_job_details_shortcode' ) );
+
+        // Attempt to send no-cache headers if our shortcodes are present
+    add_action( 'wp', array( $this, 'maybe_send_no_cache_headers' ) );
     }
 
+    public function maybe_send_no_cache_headers() {
+    global $post;
+    if ( is_a( $post, 'WP_Post' ) && (
+             has_shortcode( $post->post_content, 'hibob_job_listings' ) ||
+             has_shortcode( $post->post_content, 'hibob_job_details' )
+         )
+    ) {
+        if ( ! headers_sent() ) {
+            // WordPress function to send no-cache headers
+            nocache_headers();
+
+            // OR be more explicit (nocache_headers() covers most of this)
+            // header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+            // header("Cache-Control: post-check=0, pre-check=0", false);
+            // header("Pragma: no-cache");
+            // header("Expires: Thu, 01 Jan 1970 00:00:00 GMT"); // Past date
+        }
+    }
+}
+
     public function render_job_listings_shortcode( $atts ) {
+        // --- Try to prevent caching ---
+    if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+        define( 'DONOTCACHEPAGE', true );
+    }
+    if ( ! defined( 'DONOTCACHEOBJECT' ) ) { // For object cache
+        define( 'DONOTCACHEOBJECT', true );
+    }
+    if ( ! defined( 'DONOTMINIFY' ) ) { // If minification causes issues
+        define( 'DONOTMINIFY', true);
+    }
+    // Add constants for specific plugins if known, e.g.:
+    // if ( ! defined( 'WP_ROCKET_DONOTCACHEPAGE' ) ) {
+    //     define( 'WP_ROCKET_DONOTCACHEPAGE', true );
+    // }
+    // --- End of cache prevention attempt ---
+
         if ( ! $this->api->has_credentials() ) {
             return '<p class="hibob-error">Hibob API credentials are not configured. Please check plugin settings.</p>';
         }
@@ -167,6 +206,17 @@ class Hibob_Shortcodes {
     }
 
     public function render_job_details_shortcode( $atts ) {
+        // --- Try to prevent caching ---
+    if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+        define( 'DONOTCACHEPAGE', true );
+    }
+    if ( ! defined( 'DONOTCACHEOBJECT' ) ) {
+        define( 'DONOTCACHEOBJECT', true );
+    }
+    if ( ! defined( 'DONOTMINIFY' ) ) {
+        define( 'DONOTMINIFY', true);
+    }
+    // --- End of cache prevention attempt ---
         if ( ! $this->api->has_credentials() ) {
             return '<p class="hibob-error">Hibob API credentials are not configured.</p>';
         }
