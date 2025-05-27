@@ -57,7 +57,9 @@
     font-size: 1.2em; font-weight: 600; color: #101828; margin-top: 0;
     margin-bottom: 10px; line-height: 1.35; display: -webkit-box;
     -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-    text-overflow: ellipsis; min-height: calc(1.2em * 1.35 * 2);
+    text-overflow: ellipsis; 
+    /* min-height: calc(1.2em * 1.35 * 3); */
+    min-height: 100%;
 }
 .hibob-job-card-region {
     font-size: 0.9em; font-weight: 500; color: #6938ef;
@@ -204,7 +206,6 @@ a.hibob-job-details-apply-button:focus {
 a.hibob-job-details-apply-button:focus-visible {
     box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #7F56D9; /* Example focus ring */
 }
-
 
 /* Filter form styles (if used - kept from before) */
 .hibob-filters-form {
