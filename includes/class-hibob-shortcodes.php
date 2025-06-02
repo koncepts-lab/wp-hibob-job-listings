@@ -69,7 +69,7 @@ class Hibob_Shortcodes {
         $atts = shortcode_atts(
             array(
                 'job_details_page'   => '',
-                'limit'              => 9,
+                'limit'              => 50,
                 'offset'             => isset($_GET['offset']) ? absint($_GET['offset']) : 0,
                 'preferred_language' => 'en',
                 // These will be effectively ignored by the current Hibob_API::search_job_listings
